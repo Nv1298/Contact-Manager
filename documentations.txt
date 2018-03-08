@@ -1,0 +1,139 @@
+
+/**
+*Program Name: My Contact Manager V4
+*Program Description: My Contact Manager V4 is a program that stores a contact's name, 
+*phone number, contact address, and contact email. 
+*It includes a menu with the options: view all entries, add entry, modify entry,
+*delete entry, save book, load book, sort entries, search entry, and quit. 
+*It uses the dynamic ArrayList class to hold arbitrarily many contacts.
+*/
+
+
+Method Name: searchEntries()
+Method Description: This method will perform search based on the search field
+option chosen by the user. It will display all the search results.
+
+public static void searchEntries()
+
+
+Method Name: searchField(int searchOption,String searchKey)
+Method Description: Based on the parameters entered, this 
+method will search the contactList and return the search results.
+	
+public static List<Contact> searchField(int searchOption, String searchKey)
+
+
+Method Name: sortEntries()
+Method Description: This method is going to sort the contactsList (in ascending
+or descending order), based on the sort by options. 
+
+public static void sortEntries()
+
+
+Method Name: sortByFirstName (boolean asc)
+Method Description: This method sorts the contactsList based on the first name of the contact
+Parameter: asc-true for ascending, asc-false for descending
+
+public static void sortByFirstName(boolean asc)
+
+
+Method Name: sortByLastName(boolean asc)
+Method Description: This method sorts the contactsList based on the last name of the contact
+
+public static void sortByLastName(boolean asc)
+
+
+Method Name: sortByNumber (boolean asc)
+Method Description: This method sorts the contactsList based on the phone number of the contact
+
+public static void sortByNumber(boolean asc)
+
+
+Method Name: sortByEMail(boolean asc)
+Method Description: This method sorts the contactsList based on the email id of the contact
+
+public static void sortByEMail(boolean asc) 
+
+
+Method Name: sortByCity(boolean asc)
+Method Description: This method sorts the contactsList based on the city of the contact
+
+public static void sortByCity(boolean asc)
+
+public static void swap(int i, int j)
+
+Method Name: loadBook()
+Method Description: This method loads the entries of the file contacts.txt from current
+working directory into contactsList.
+
+public static void loadBook()
+
+
+Method Name: saveBook()
+Method Description: This method saves all entries of contactsList to contacts.txt file in
+current working directory.
+
+public static void saveBook()
+
+Method Name: deleteEntre()
+Method Description: delete specific entry
+public static void deleteEntry()
+
+
+Method Name: modifyEntry()
+Method Description: This method modifies the entry from the contactsList
+public static void modifyEntry()
+
+
+Method Name: searchEntry (String searchKey, int searchOption)
+Method Description: This method searches the contactsList if the searchKey is present or not.
+public static boolean searchEntry(String searchKey, int searchOption)
+
+
+Method Name: displayAllEntries()
+Method Description: This method display all entries of contactsList
+public static void displayAllEntries()
+
+
+Method Name: addNewEntry
+Method Description: This method adds New Entry to contactsList
+public static void addNewEntry()
+
+
+Method Name: enterAndValidateData(boolean create, Contact newContact)
+Method Description: This method display two types of prompts for users: input for original entry, 
+and prompt for new input for entry to be modified. In case of entry to be modified the word
+“new” is added before the entry name. It then calls appropriate method to validate the user input, 
+wherever applicable.
+private static Contact enterAndValidateData(boolean create, Contact newContact)
+
+Method Name: validatePhoneNum
+Method Description: This method validates phone number inputed by user
+private static boolean validatePhoneNum(String phoneNum)
+
+
+Method Name: validateAlphaNumeric(String number)
+Method Description: This method validates street number inputed by user
+private static boolean validateAlphaNumeric(String number) 
+
+
+Method Name: validateAlphaStreetName(String name)
+Method Description: This method validates street name inputed by user
+private static boolean validateAlphaStreetName(String name) 
+
+
+Method Name: validateAlpha(String name)
+Method Description: This method validates city, province or country inputed by user
+private static boolean validateAlpha(String name)
+
+
+Method Name: validatePostalCode(String postaCode)
+Method Description: This method validates Postal Code inputed by user
+private static boolean validatePostalCode(String postaCode)
+
+
+
+
+
+
+
