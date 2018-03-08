@@ -1,14 +1,3 @@
-
-/**
-*Program Name: My Contact Manager V4
-*Program Description: My Contact Manager V4 is a program that stores a contact's name, 
-*phone number, contact address, and contact email. 
-*It includes a menu with the options: view all entries, add entry, modify entry,
-*delete entry, save book, load book, sort entries, search entry, and quit. 
-*It uses the dynamic ArrayList class to hold arbitrarily many contacts.
-*/
-
-
 package noel;
 
 import java.io.BufferedReader;
@@ -55,14 +44,15 @@ public class ContactManagerV4 {
 	 * execute the proper method. 
 	 */
 
-	public static void main(String[] args) { // java application begins
+	public static void main(String[] args) { 
 		
 		while (true) {
-			
 			System.out.println("---------------"); // Display a blank line
 			
 			// Display menu options to the user
-			System.out.println("\nMenu:\n1.View All Entries \n2.Add Entry \n3.Modify Entry \n4.Delete Entry \n5.Save Book \n6.Load Book \n7.Sort \n8.Search \n9.Quit");
+			System.out.println("\nMenu:\n1.View All Entries \n2.Add Entry \n3.Modify Entry \n4.Delete Entry \n5.Save Book \n6.Load Book \n7.Sort \n8.Search 
+
+\n9.Quit");
 
 			System.out.println("Please enter your option(1 to 9):");
 			int option = 0;
@@ -70,7 +60,7 @@ public class ContactManagerV4 {
 			try {
 				option = Integer.parseInt(input.nextLine());
 			} 
-			catch (NumberFormatException nfe) {
+			catch (NumberFormatException nfe) {	
 				
 				System.err.println("Sorry. Invalid Option. Please try again!");	
 				continue;
@@ -118,35 +108,22 @@ public class ContactManagerV4 {
 				
 			default:
 				// Message to the user if invalid option is chosen
-				System.err.println("Invalid Option. Please re-try!");
-				
+				System.err.println("Invalid Option. Please re-try!");	
 			} 
-			
 		} 
-		
 	} 
 
-	/**
-	 * Method Name: searchEntries()
-	 * Method Description: This method will perform search based on the search field
-	 * option chosen by the user. It will display all the search results.
-	 */
-
+	
 	public static void searchEntries() {
 
 		// Prompt to the user to select from one of the five search options
 		System.out.println("Please enter search field:1.First Name 2. Last Name 3.Number 4.Email 5.City");
 
-	
 		int searchOption = 0;
 
 		try {
 
 			searchOption = Integer.parseInt(input.nextLine());
-
-			/*if the user types invalid search option, search field then
-			 * display error message and return to the main menu.
-			 */
 
 			if (searchOption < 1 || searchOption > 5) {
 				
@@ -156,12 +133,6 @@ public class ContactManagerV4 {
 			} 
 			System.out.println("Please enter search key");
 			String searchKey = input.nextLine();
-
-			/*
-			 * Call the searchField method which performs search based on the
-			 * selected field and selected search key and return the search
-			 * result
-			 */
 			
 			List<Contact> searchResults = searchField(searchOption, searchKey);
 
@@ -176,23 +147,15 @@ public class ContactManagerV4 {
 					System.out.println(searchResults.get(i).toString());
 				} 
 			} 
-
 		} 
 
-		// If the user types text which isn't a required number, throw a NumberFormatException
 		catch (NumberFormatException nfe) {
 
-			// Display error message
 			System.err.println("Sorry. Invalid Option. Please re-try!");
 			return;
 		} 
 	} 
 
-	/**
-	 * Method Name: searchField(int searchOption,String searchKey)
-	 * Method Description: Based on the parameters entered, this 
-	 * method will search the contactList and return the search results.
-	
 	public static List<Contact> searchField(int searchOption, String searchKey) { 
 		
 		// Declare and create an empty search result list
@@ -244,14 +207,7 @@ public class ContactManagerV4 {
 
 		} 
 		return searchResults;
-
 	} 
-
-	/**
-	 * Method Name: sortEntries()
-	 * Method Description: This method is going to sort the contactsList (in ascending
-	 * or descending order), based on the sort by options. 
-	 */
 
 	public static void sortEntries() {
 
@@ -281,7 +237,7 @@ public class ContactManagerV4 {
 			// Prompt to the user to select one of the five sort fields options
 			System.out.println("Please enter sort field:1.First Name 2.Last Name 3.Number 4.Email 5.City");
 
-			// convert string input to integer and store its value in integer variable “field”
+			// convert string input to integer and store its value in integer variable â€œfieldâ€
 			int field = Integer.parseInt(input.nextLine());
 		
 			switch (field) {
@@ -321,11 +277,6 @@ public class ContactManagerV4 {
 
 	} 
 
-	/**
-	 * Method Name: sortByFirstName (boolean asc)
-	 * Method Description: This method sorts the contactsList based on the first name of the contact
-	 * Parameter: asc-true for ascending, asc-false for descending
-	 */
 
 	public static void sortByFirstName(boolean asc) { 
 		
@@ -334,29 +285,18 @@ public class ContactManagerV4 {
 				Contact currcontact = contactsList.get(j - 1);
 				Contact contact = contactsList.get(j);
 				if (asc) { // if sort order is ascending (A-Z )
-					
 					if (currcontact.getFirstName().compareTo(contact.getFirstName()) > 0) {		
 						swap(j - 1, j); 
 					} 
 				}
-				
 				else {	
 					if (currcontact.getFirstName().compareTo(contact.getFirstName()) < 0) {	
 						swap(j - 1, j); 
 					} 	
 				} 
-				
 			} 
-			
 		} 
-		
-
 	} 
-
-	/**
-	 * Method Name: sortByLastName(boolean asc)
-	 * Method Description: This method sorts the contactsList based on the last name of the contact
-	 */
 
 	public static void sortByLastName(boolean asc) { 
 		
@@ -375,17 +315,9 @@ public class ContactManagerV4 {
 						swap(j - 1, j); 	
 					} 
 				} 
-				
 			} 
-			
 		} 
-		
 	} 
-
-	/**
-	 * Method Name: sortByNumber (boolean asc)
-	 * Method Description: This method sorts the contactsList based on the phone number of the contact
-	 */
 
 	public static void sortByNumber(boolean asc) { 
 		
@@ -399,35 +331,25 @@ public class ContactManagerV4 {
 						swap(j - 1, j); 
 					} 
 				} 
-				
 				else {	
 					if (currcontact.getNumber().compareTo(contact.getNumber()) < 0) {	
 						swap(j - 1, j); 
 					} 	
 				} 	
 			} 
-		} 
-		
+		} 		
 	} 
-
-	/**
-	 * Method Name: sortByEMail(boolean asc)
-	 * Method Description: This method sorts the contactsList based on the email id of the contact
-	 */
 
 	public static void sortByEMail(boolean asc) {
 		
 		for (int i = 0; i < contactsList.size(); i++) {			
-			for (int j = 1; j < (contactsList.size() - i); j++) {
-				
+			for (int j = 1; j < (contactsList.size() - i); j++) {				
 				Contact currcontact = contactsList.get(j - 1);
 				Contact contact = contactsList.get(j);
 				if (asc) {
-					
 					if (currcontact.getEmail().compareTo(contact.getEmail()) > 0) {						
 						swap(j - 1, j); 
 					} 
-
 					else {
 						if (currcontact.getEmail().compareTo(contact.getEmail()) < 0) {	
 							swap(j - 1, j); 
@@ -438,33 +360,24 @@ public class ContactManagerV4 {
 		} 
 	} 
 
-	/**
-	 * Method Name: sortByCity(boolean asc)
-	 * Method Description: This method sorts the contactsList based on the city of the contact
-	 */
-
 	public static void sortByCity(boolean asc) { 
 		
 		for (int i = 0; i < contactsList.size(); i++) {			
 			for (int j = 1; j < (contactsList.size() - i); j++) {
 				Contact currcontact = contactsList.get(j - 1);
 				Contact contact = contactsList.get(j);
-				
 				if (asc) { 	
 					if (currcontact.getAddress().getCity().compareTo(contact.getAddress().getCity()) > 0) {	
 						swap(j - 1, j);
 					} 	
 				}
-				
 				else {	
 					if (currcontact.getAddress().getCity().compareTo(contact.getAddress().getCity()) < 0){	
 						swap(j - 1, j); 	
 					} 	
 				} 	
 			}
-			
 		} 
-		
 	} 
 
 	public static void swap(int i, int j) { 
@@ -474,11 +387,7 @@ public class ContactManagerV4 {
 		contactsList.set(j, temp);
 
 	} 
-	/**
-	 * Method Name: loadBook()
-	 * Method Description: This method loads the entries of the file contacts.txt from current
-	 * working directory into contactsList.
-	 */
+	
 
 	public static void loadBook() { 
 
@@ -522,12 +431,6 @@ public class ContactManagerV4 {
 		} 
 		
 	} 
-
-	/**
-	 * Method Name: saveBook()
-	 * Method Description: This method saves all entries of contactsList to contacts.txt file in
-	 * current working directory.
-	 */
 
 	public static void saveBook() { 
 		
@@ -583,29 +486,24 @@ public class ContactManagerV4 {
 			
 			System.err.println("Sorry. Invalid Option. Please re-try"); 
 			
-			return;
-			
+			return;	
 		} 
 		
 		if (searchOption == 1) { // If search by name option is selected
 			
-			System.out.println("\nPlease enter Name to search:"); 
-			
+			System.out.println("\nPlease enter Name to search:"); 	
 		}
 		
 		else if (searchOption == 2) { // If search by number option is selected
 			
-			System.out.println("\nPlease enter Number to search:"); 
-			
+			System.out.println("\nPlease enter Number to search:"); 	
 		} 
 		
 		else {
 			
 			System.err.println("Sorry. Invalid Option. Please re-try"); 
-			return;
-			
+			return;	
 		} 
-
 	
 		boolean isValid = false;
 		String searchKey;
@@ -614,59 +512,35 @@ public class ContactManagerV4 {
 			
 			searchKey = input.nextLine();
 
-			if (searchOption == 1) {
-				
-				isValid = true; 
-				
+			if (searchOption == 1) {				
+				isValid = true; 	
 			} 
 			
 			else if (searchOption == 2) {
-				
 				isValid = validatePhoneNum(searchKey);
-				
 				if (isValid == false) { 
-					
 					System.err.println("Invalid. Please enter in 123-456-5678 format only");
-					
 				}
-				
 			} 
 			
 			else {
-				
 				System.err.println("Sorry. Invalid Option"); 
-				
 				return;
-				
 			}
 			
 		} while (!isValid); 
 
-		/*
-		 * Call searchEntry method to search if the search key/option is present
-		 * or not, and store the result into boolean variable isFound
-		 */
-		
 		boolean isFound = searchEntry(searchKey, searchOption);
 		
 		if (isFound) {
 			System.out.println("Successfully found the entry. Deleting the entry.");
 			contactsList.remove(resultIndex);
-
 		} 
 		
 		else {
-			
 			System.out.println("Entry NOT found."); 
-			
 		}
-		
 	}
-
-	/**
-	 * Method Name: modifyEntry()
-	 * Method Description: This method modifies the entry from the contactsList
-	 */
 
 	public static void modifyEntry() { 
 		
@@ -674,41 +548,27 @@ public class ContactManagerV4 {
 		int searchOption = Integer.parseInt(input.nextLine());
 		boolean isValid = false;
 		
-		
 		String searchKey;
 		
 		do {
-
-			
 			if (searchOption == 1) {
-			
 				System.out.println("\nPlease enter Name to search:");
-				
 				searchKey = input.nextLine();
-				
 				isValid = true;
-				
 			}
 			
 			else if (searchOption == 2) { 
-				
-				
 				System.out.println("\nPlease enter Number to search:");
 				searchKey = input.nextLine();
 				isValid = validatePhoneNum(searchKey);
 				
 				if (isValid == false) { 
-					System.err.println("Invalid. Please enter in 123-456-5678 format only");
-					
+					System.err.println("Invalid. Please enter in 123-456-5678 format only");	
 				} 
-				
 			} 
 			else {
-				
 				System.err.println("Sorry. Invalid Option");
-				
 				return;
-				
 			} 
 
 		} while (!isValid);
@@ -721,71 +581,42 @@ public class ContactManagerV4 {
 			enterAndValidateData(false, modifyContact);
 			
 			System.out.println("Completed Updating.");
-			
 		} 
-		
 		else { 
-
 			System.out.println("Entry NOT found."); 
-			
 		}
-		
 	} 
-
-	/**
-	 * Method Name: searchEntry (String searchKey, int searchOption)
-	 * Method Description: This method searches the contactsList if the searchKey is present or not.
-	 */
 
 	public static boolean searchEntry(String searchKey, int searchOption) { 
 
 		boolean found = false; 
-		
 		for (int i = 0; i < contactsList.size(); i++) {
 			
 			Contact contact = contactsList.get(i);
-			
 			if (searchOption == 1) { 
-				
 				if (contact.getFirstName().compareTo(searchKey) == 0) {
 					found = true; 					
 					resultIndex = i; 
-					break;
-					
+					break;	
 				} 
-				
 			} 
-			
 			else if (searchOption == 2) {
-				
-				if (contact.getNumber().compareTo(searchKey) == 0) {
-					
+				if (contact.getNumber().compareTo(searchKey) == 0) {	
 					found = true; 
 					resultIndex = i; 
-					break;
-					
+					break;	
 				} 
-				
 			} 
-			
 		} 
-		
 		return found; 
-		
 	} 
-
-	/**
-	 * Method Name: displayAllEntries()
-	 * Method Description: This method display all entries of contactsList
-	 */
 
 	public static void displayAllEntries() { 
 
 		if (contactsList.size() == 0) {
 			System.out.println("No Entries to Display.");
 	
-			return;
-			
+			return;	
 		}
 		System.out.println("All Entries:");
 		System.out.println("-------------");
@@ -793,15 +624,8 @@ public class ContactManagerV4 {
 		for (int i = 0; i < contactsList.size(); i++) {
 			Contact contact = contactsList.get(i);
 			System.out.println(contact);
-			
 		} 
-		
 	} 
-
-	/**
-	 * Method Name: addNewEntry
-	 * Method Description: This method adds New Entry to contactsList
-	 */
 
 	public static void addNewEntry() { 
 		Contact newContact = enterAndValidateData(true, null);
@@ -809,23 +633,14 @@ public class ContactManagerV4 {
 		System.out.println("\nAdded Entry Successfully.\n");	
 	} 
 
-	/**
-	 * Method Name: enterAndValidateData(boolean create, Contact newContact)
-	 * Method Description: This method display two types of prompts for users: input for original entry, 
-	 * and prompt for new input for entry to be modified. In case of entry to be modified the word
-	 * “new” is added before the entry name. It then calls appropriate method to validate the user input, 
-	 * wherever applicable.
-	 */
-
 	private static Contact enterAndValidateData(boolean create, Contact newContact) { 
 
 		if (create)
 			System.out.println("Please enter First Name:");
-		
 		else
 			System.out.println("Please enter New First Name:");
 			String firstName = input.nextLine();
-		
+
 		if (create)
 			System.out.println("Please enter Last Name:");
 		else
@@ -854,12 +669,10 @@ public class ContactManagerV4 {
 		} while (!isValid);
 		
 		if (create) { 
-			newContact = new Contact(firstName, lastName, number);
-			
+			newContact = new Contact(firstName, lastName, number);	
 		}
 		
 		else { 
-			
 			newContact.setFirstName(firstName);
 			newContact.setLastName(lastName);
 			newContact.setNumber(number);
@@ -1005,23 +818,11 @@ public class ContactManagerV4 {
 		return newContact;
 	}
 
-	/**
-	 * Method Name: validatePhoneNum
-	 * Method Date: June 4,2016
-	 * Method Description: This method validates phone number inputed by user
-	 */
-
 	private static boolean validatePhoneNum(String phoneNum) { 
-		
 		Pattern pattern = Pattern.compile(phoneNumRegExp);
 		Matcher matcher = pattern.matcher(phoneNum);
 		return matcher.matches();
 	} 
-
-	/**
-	 * Method Name: validateAlphaNumeric(String number)
-	 * Method Description: This method validates street number inputed by user
-	 */
 
 	private static boolean validateAlphaNumeric(String number) {
 		Pattern pattern = Pattern.compile(alphaNumRegExp);
@@ -1030,22 +831,12 @@ public class ContactManagerV4 {
 		return matcher.matches();
 	}
 
-	/**
-	 * Method Name: validateAlphaStreetName(String name)
-	 * Method Description: This method validates street name inputed by user
-	 */
-
 	private static boolean validateAlphaStreetName(String name) { 
 		Pattern pattern = Pattern.compile(alphaRegExpStreet);
 		Matcher matcher = pattern.matcher(name);
 		
 		return matcher.matches();
 	}
-
-	/**
-	 * Method Name: validateAlpha(String name)
-	 * Method Description: This method validates city, province or country inputed by user
-	 */
 
 	private static boolean validateAlpha(String name) { 
 
@@ -1055,12 +846,6 @@ public class ContactManagerV4 {
 		return matcher.matches();
 		
 	} 
-
-	/**
-	 * Method Name: validatePostalCode(String postaCode)
-	 * Method Description: This method validates Postal Code inputed by user
-	 */
-
 	private static boolean validatePostalCode(String postaCode) { 
 		Pattern pattern = Pattern.compile(postalCodeRegExp);
 		Matcher matcher = pattern.matcher(postaCode);
@@ -1069,4 +854,5 @@ public class ContactManagerV4 {
 	} 
 
 } // end class ContactManagerV4
+
 
