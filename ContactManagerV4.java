@@ -50,9 +50,7 @@ public class ContactManagerV4 {
 			System.out.println("---------------"); // Display a blank line
 			
 			// Display menu options to the user
-			System.out.println("\nMenu:\n1.View All Entries \n2.Add Entry \n3.Modify Entry \n4.Delete Entry \n5.Save Book \n6.Load Book \n7.Sort \n8.Search 
-
-\n9.Quit");
+			System.out.println("\nMenu:\n1.View All Entries \n2.Add Entry \n3.Modify Entry \n4.Delete Entry \n5.Save Book \n6.Load Book \n7.Sort \n8.Search \n9.Quit");
 
 			System.out.println("Please enter your option(1 to 9):");
 			int option = 0;
@@ -61,10 +59,8 @@ public class ContactManagerV4 {
 				option = Integer.parseInt(input.nextLine());
 			} 
 			catch (NumberFormatException nfe) {	
-				
 				System.err.println("Sorry. Invalid Option. Please try again!");	
-				continue;
-				
+				continue;	
 			} 
 
 			switch (option) { 
@@ -113,7 +109,6 @@ public class ContactManagerV4 {
 		} 
 	} 
 
-	
 	public static void searchEntries() {
 
 		// Prompt to the user to select from one of the five search options
@@ -122,14 +117,11 @@ public class ContactManagerV4 {
 		int searchOption = 0;
 
 		try {
-
 			searchOption = Integer.parseInt(input.nextLine());
 
-			if (searchOption < 1 || searchOption > 5) {
-				
+			if (searchOption < 1 || searchOption > 5) {	
 				System.err.println("Sorry. Invalid Option. Please re-try");				
-				return;
-				
+				return;	
 			} 
 			System.out.println("Please enter search key");
 			String searchKey = input.nextLine();
@@ -277,7 +269,6 @@ public class ContactManagerV4 {
 
 	} 
 
-
 	public static void sortByFirstName(boolean asc) { 
 		
 		for (int i = 0; i < contactsList.size(); i++) {			
@@ -297,7 +288,6 @@ public class ContactManagerV4 {
 			} 
 		} 
 	} 
-
 	public static void sortByLastName(boolean asc) { 
 		
 		for (int i = 0; i < contactsList.size(); i++) {
@@ -652,7 +642,6 @@ public class ContactManagerV4 {
 			String number;
 		
 		do {
-			
 			if (create)
 				System.out.println("Please enter Phone Number in format 123-456-7610 only:");
 			
@@ -693,10 +682,8 @@ public class ContactManagerV4 {
 			streetNum = input.nextLine();
 			
 			isValid = validateAlphaNumeric(streetNum);
-
-
-			if (!isValid)
-
+			
+				if (!isValid)
 				System.err.println("Invalid");
 			
 		} while (!isValid);
@@ -717,7 +704,7 @@ public class ContactManagerV4 {
 
 			streetName = input.nextLine();
 			isValid = validateAlphaStreetName(streetName);
-			if (!isValid)
+				if (!isValid)
 				System.err.println("Invalid");
 			
 		} while (!isValid);
@@ -729,17 +716,14 @@ public class ContactManagerV4 {
 		String city;
 		
 		do {
-			
 			if (create)
-				
 				System.out.println("Please enter City:");
-			
 			else
 				System.out.println("Please enter New City:");
 			
 			city = input.nextLine();
 			isValid = validateAlpha(city);
-			if (!isValid)
+				if (!isValid)
 				System.err.println("Invalid");
 			
 		} while (!isValid);
@@ -760,7 +744,7 @@ public class ContactManagerV4 {
 				System.out.println("Please enter New Province:");
 			province = input.nextLine();
 			isValid = validateAlpha(province);
-			if (!isValid)
+				if (!isValid)
 				System.err.println("Invalid");
 			
 		} while (!isValid);
@@ -772,16 +756,13 @@ public class ContactManagerV4 {
 		String country;
 		
 		do {
-			
 			if (create)
-			
 				System.out.println("Please enter Country:");
-			
 			else
 				System.out.println("Please enter New Country:");
 			country = input.nextLine();
 			isValid = validateAlpha(country);
-			if (!isValid)
+				if (!isValid)
 				System.err.println("Invalid");
 			
 		} while (!isValid);
@@ -799,9 +780,9 @@ public class ContactManagerV4 {
 			
 			else
 				System.out.println("Please enter New Postal Code:");
-			postalCode = input.nextLine();
-			isValid = validatePostalCode(postalCode);
-			if (!isValid)
+				postalCode = input.nextLine();
+				isValid = validatePostalCode(postalCode);
+				if (!isValid)
 				System.err.println("Invalid");
 			
 		} while (!isValid);
@@ -813,24 +794,21 @@ public class ContactManagerV4 {
 
 		else
 			System.out.println("Please enter New E-Mail:");
-		newContact.setEmail(input.nextLine());
+			newContact.setEmail(input.nextLine());
 
 		return newContact;
 	}
-
 	private static boolean validatePhoneNum(String phoneNum) { 
 		Pattern pattern = Pattern.compile(phoneNumRegExp);
 		Matcher matcher = pattern.matcher(phoneNum);
 		return matcher.matches();
 	} 
-
 	private static boolean validateAlphaNumeric(String number) {
 		Pattern pattern = Pattern.compile(alphaNumRegExp);
 		Matcher matcher = pattern.matcher(number);
 
 		return matcher.matches();
 	}
-
 	private static boolean validateAlphaStreetName(String name) { 
 		Pattern pattern = Pattern.compile(alphaRegExpStreet);
 		Matcher matcher = pattern.matcher(name);
@@ -839,12 +817,10 @@ public class ContactManagerV4 {
 	}
 
 	private static boolean validateAlpha(String name) { 
-
 		Pattern pattern = Pattern.compile(alphaRegExp);
 		Matcher matcher = pattern.matcher(name);
 	
-		return matcher.matches();
-		
+		return matcher.matches();	
 	} 
 	private static boolean validatePostalCode(String postaCode) { 
 		Pattern pattern = Pattern.compile(postalCodeRegExp);
